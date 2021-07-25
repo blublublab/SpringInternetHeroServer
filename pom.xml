@@ -11,8 +11,7 @@
 	<groupId>com.yainnixdev</groupId>
 	<artifactId>springleaf.server</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>springleaf.server</name>
-	<description>Demo project for Spring Boot</description>
+	<name>springsestem</name>
 	<properties>
 		<java.version>11</java.version>
 	</properties>
