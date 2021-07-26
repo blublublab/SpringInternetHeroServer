@@ -10,17 +10,22 @@ import java.util.Set;
 
 @Entity(name = "users")
 @Data
-public class User implements UserDetails {
+public class User  {
     @Id
     @Column(name = "user_id")
-    private Integer userId;
+    private String userId;
 
-    @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
-    @PrimaryKeyJoinColumn
-    private Character character;
+   @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
+   @PrimaryKeyJoinColumn
+   private Character character;
 
-    private String username;
-    private String password;
+    private String email;
+
+    @Column(name = "username")
+    private String name;
+
+    private String pictureURL;
+    private String locale;
 
     private boolean isActive;
 
@@ -31,31 +36,7 @@ public class User implements UserDetails {
     @CollectionTable(name = "user_role", joinColumns = @JoinColumn(name ="user_id"))
     @Enumerated(EnumType.STRING)
     private Set<UserRole> roles;
-    @Override
-    public Collection<? extends GrantedAuthority> getAuthorities() {
-        return roles;
-    }
 
-
-    @Override
-    public boolean isAccountNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isAccountNonLocked() {
-        return false;
-    }
-
-    @Override
-    public boolean isCredentialsNonExpired() {
-        return false;
-    }
-
-    @Override
-    public boolean isEnabled() {
-        return isActive;
-    }
 
     public  User() {
     }

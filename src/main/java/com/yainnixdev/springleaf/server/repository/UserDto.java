@@ -9,16 +9,18 @@ import org.springframework.stereotype.Repository;
 import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 @Data
+@NotEmpty
+@NotNull
 public class UserDto {
     public UserDto(){
 
     }
-    @NotNull
-    @NotEmpty
-    private String username;
+    private String userId;
+    private String email;
+    private String name;
+    private String locale;
+    private String pictureURL;
 
-    @NotNull
-    @NotEmpty
-    private String password;
+
 
 }

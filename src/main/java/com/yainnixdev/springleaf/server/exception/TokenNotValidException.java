@@ -1,6 +1,6 @@
 package com.yainnixdev.springleaf.server.exception;
 
-public final class UserNotFoundException extends RuntimeException {
+public final class TokenNotValidException extends RuntimeException {
 
     private static final long serialVersionUID = 1430751388076072752L;
 
@@ -11,7 +11,7 @@ public final class UserNotFoundException extends RuntimeException {
     }
 
 
-    public UserNotFoundException(final String message) {
+    public TokenNotValidException(final String message) {
         super(message);
     }
 

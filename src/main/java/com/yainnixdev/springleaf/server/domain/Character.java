@@ -1,8 +1,10 @@
+
 package com.yainnixdev.springleaf.server.domain;
 
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.springframework.context.annotation.Primary;
 
 import javax.persistence.*;
 
@@ -16,8 +18,8 @@ public class Character {
 
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "user_id")
-    private Integer userId;
+    @Column(name = "character_id")
+    private String characterId;
 
     @OneToOne()
     @MapsId
