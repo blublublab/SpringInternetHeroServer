@@ -9,7 +9,9 @@ spring:
 
 
   datasource:
-    url: ${DATABASE_HOSTNAME}
+    hikari:
+      maxLifeTime: 600000
+    url: ${DATABASE_HOSTNAME}?sslmode=require
     driver-class-name: org.postgresql.Driver
     initialSize: 5
     maxActive: 10
@@ -22,8 +24,5 @@ spring:
   jpa:
     generate-ddl: true
     hibernate:
-      ddl-auto: update
+      ddl-auto: create-drop
     show-sql: false
-
-
-
