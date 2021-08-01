@@ -11,7 +11,7 @@ spring:
   datasource:
     hikari:
       maxLifeTime: 600000
-    url: ${DATABASE_HOSTNAME}?sslmode=require
+    url: ${DATABASE_HOSTNAME} 
     driver-class-name: org.postgresql.Driver
     initialSize: 5
     maxActive: 10
