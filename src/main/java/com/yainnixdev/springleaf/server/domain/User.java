@@ -1,6 +1,5 @@
 package com.yainnixdev.springleaf.server.domain;
 
-import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -23,7 +22,7 @@ public class User implements UserDetails {
     @Setter
     @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-   private Character character;
+   private Hero hero;
 
 
 

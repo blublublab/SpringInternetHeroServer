@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.util.Collections;
+import java.util.Optional;
 
 
 @Service
@@ -22,6 +23,16 @@ public class UserService  implements UserDetailsService {
         this.userRepo = userRepo;
     }
 
+    public User getUserByUserId(@RequestBody String userId){
+        Optional<User> optionalEntity =  userRepo.findById(userId);
+        User user;
+        if(optionalEntity.isPresent()){
+            user = optionalEntity.get();
+        } else {
+            throw  new UsernameNotFoundException("User not found");
+        }
+        return user;
+    }
 
     public User registerUserAccount(@RequestBody UserDto userDto) {
         User user = new User();
