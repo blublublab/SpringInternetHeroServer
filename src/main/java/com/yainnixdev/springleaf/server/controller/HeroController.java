@@ -5,25 +5,26 @@ import com.yainnixdev.springleaf.server.domain.Hero;
 import com.yainnixdev.springleaf.server.exception.HeroAlreadyExistException;
 import com.yainnixdev.springleaf.server.exception.HeroNotFoundException;
 import com.yainnixdev.springleaf.server.repository.HeroRepo;
+import com.yainnixdev.springleaf.server.service.HeroService;
 import com.yainnixdev.springleaf.server.service.UserService;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestHeader;
+import org.springframework.web.bind.annotation.*;
 
-@Controller("/hero")
+@RestController
+@RequestMapping("/hero")
 public class HeroController {
 
-    private HeroRepo heroRepo;
+    private HeroService heroService;
     private UserService userService;
-    public HeroController(HeroRepo heroRepo, UserService userService) {
-        this.heroRepo = heroRepo;
+    public HeroController(HeroService heroService, UserService userService) {
+        this.heroService = heroService;
         this.userService = userService;
     }
 
-    @PostMapping("/get")
-    public Hero getHero(String user_id){
-      Hero hero =   heroRepo.findByUser_Id(user_id);
+
+    @PostMapping("/get_by/user_id")
+    public Hero getHero(@RequestBody  String userId){
+      Hero hero =  heroService.getHeroByUserId(userId);
       if(hero == null){
           throw new HeroNotFoundException("Hero not found");
       }
@@ -31,16 +32,7 @@ public class HeroController {
     }
 
     @PostMapping("/create")
-    public Hero createNewHero(Hero inputHero, String user_id){
-
-        // TODO: Add variable sprites to hero creation
-        Hero hero = heroRepo.findByUser_Id(user_id);
-        if(hero != null) {
-            throw new HeroAlreadyExistException("Hero already exist");
-        }
-        hero = new Hero();
-        hero.setHeroName(inputHero.getHeroName());
-        hero.setUser(userService.getUserByUserId(user_id));
-        return hero;
+    public Hero createNewHero(@RequestBody  Hero inputHero,@RequestHeader("user_id") String user_id){
+        return heroService.createNewHero(inputHero , user_id);
     }
 }

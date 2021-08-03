@@ -1,5 +1,7 @@
 package com.yainnixdev.springleaf.server.domain;
 
+import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import lombok.Getter;
 import lombok.Setter;
 import org.springframework.security.core.GrantedAuthority;
@@ -10,6 +12,7 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity(name = "users")
+
 public class User implements UserDetails {
     @Id
     @Column(name = "user_id")
