@@ -38,6 +38,8 @@ public class HeroService {
         hero = new Hero();
         hero.setHeroName(inputHero.getHeroName());
         hero.setUser(userService.getUserByUserId(user_id));
+        hero.setMoney(0);
+        hero.setLevel(0);
         return heroRepo.save(hero);
     }
 }

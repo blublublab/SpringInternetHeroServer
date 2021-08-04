@@ -19,7 +19,7 @@ public class HeroDto {
         this.moveIntention = moveIntention;
     }
 
-    public Hero getHero() {
+    public Hero getHero(){
         return hero;
     }
 

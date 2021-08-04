@@ -7,6 +7,7 @@ import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
+import org.hibernate.annotations.ColumnDefault;
 import org.springframework.context.annotation.Primary;
 import org.springframework.lang.NonNull;
 
@@ -33,18 +34,17 @@ public class Hero {
     private User user;
 
 
-    @Column(name ="hero_name")
     private String heroName;
 
-    @NonNull
+    @ColumnDefault("0")
     private Integer level;
 
     @NonNull
     private Integer money;
 
-    @NonNull
+    @ColumnDefault("0")
     private int xCoordinate;
-    @NonNull
+    @ColumnDefault("0")
     private int yCoordinate;
 
 }

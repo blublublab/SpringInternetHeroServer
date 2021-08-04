@@ -97,12 +97,13 @@ public class LoginController  {
                 .setAudience(Collections.singletonList(System.getenv("GOOGLE_OAUTH_CLIENT_ID")))
                 .build();
         GoogleIdToken idToken = null;
+        Payload payload;
         try {
         idToken = verifier.verify(userToken);
+        payload = idToken.getPayload();
         } catch (TokenNotValidException e){
-            e.printStackTrace();
+            throw new TokenNotValidException("Token from user not valid");
         };
-        Payload payload = idToken.getPayload();
 
         // Get profile information from payload
         UserDto userDto = new UserDto();
