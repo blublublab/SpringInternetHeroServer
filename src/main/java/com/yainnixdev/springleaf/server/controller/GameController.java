@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 
 @Controller
-@RequestMapping("/game")
+@MessageMapping("/game")
 public class GameController {
     @SendTo("/topic")
     @MessageMapping("/topic")
