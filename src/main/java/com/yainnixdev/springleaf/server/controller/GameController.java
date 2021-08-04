@@ -11,12 +11,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 
-@Controller
+@RestController
 @MessageMapping("/game")
 public class GameController {
-    @SendTo("/topic")
-    @MessageMapping("/topic")
-    public HeroDto playerPosition(@Payload @RequestBody HeroDto heroDto){
+    @MessageMapping("/")
+    public HeroDto playerPosition(@Payload HeroDto heroDto){
         System.out.println(heroDto.getMoveIntention().x);
         System.out.println(heroDto.getHero().getHeroName());
         return new HeroDto(heroDto.getMoveIntention(), heroDto.getHero());
