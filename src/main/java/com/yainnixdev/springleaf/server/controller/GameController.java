@@ -13,7 +13,7 @@ import org.springframework.web.bind.annotation.RestController;
 @Controller
 @RequestMapping("/game")
 public class GameController {
-    @SendTo("/topic/movement")
+    @SendTo("/topic")
     public HeroDto playerPosition(@RequestBody HeroDto heroDto){
         System.out.println(heroDto.getMoveIntention().x);
         System.out.println(heroDto.getHero().getHeroName());
