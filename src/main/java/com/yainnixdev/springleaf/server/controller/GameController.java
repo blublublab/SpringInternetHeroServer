@@ -1,23 +1,20 @@
 package com.yainnixdev.springleaf.server.controller;
 
-import com.yainnixdev.springleaf.server.domain.Hero;
-import com.yainnixdev.springleaf.server.domain.HeroDto;
+import com.yainnixdev.springleaf.server.repository.UserDto;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.Payload;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.stereotype.Controller;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 
 @Controller
-@MessageMapping("/game")
-@SendTo("/topic/game")
+@MessageMapping("/")
 public class GameController {
-    public HeroDto playerPosition(@Payload HeroDto heroDto){
-        System.out.println(heroDto.getMoveIntention().x);
-        System.out.println(heroDto.getHero().getHeroName());
-        return new HeroDto(heroDto.getMoveIntention(), heroDto.getHero());
+
+
+    @MessageMapping("/send_position")
+    @SendTo("/topic/get_positions")
+    public UserDto playerPosition(@Payload UserDto userDto){
+       return userDto;
     }
 }
