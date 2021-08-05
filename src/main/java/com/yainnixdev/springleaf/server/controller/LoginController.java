@@ -97,7 +97,7 @@ public class LoginController  {
                 // Specify the CLIENT_ID of the app that accesses the backend:
                 .setAudience(Collections.singletonList(System.getenv("GOOGLE_OAUTH_CLIENT_ID")))
                 .build();
-        GoogleIdToken idToken = null;
+        GoogleIdToken idToken;
         Payload payload;
         try {
         idToken = verifier.verify(userToken);

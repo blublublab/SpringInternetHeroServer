@@ -28,12 +28,15 @@ public class LoginFilter extends OncePerRequestFilter {
     @Override
     @SneakyThrows
     protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain) {
-        final String requestTokenHeader = request.getHeader("Authorization");
+        String requestTokenHeader = request.getHeader("Authorization");
+        if(requestTokenHeader == null){
+            requestTokenHeader  = request.getParameter("authorization");
+            }
         String username = null;
         String jwtToken;
         // JWT Token is in the form "Bearer token". Remove Bearer word and get
         // only the Token
-        if (requestTokenHeader != null && requestTokenHeader.startsWith("Bearer ")) {
+        if (requestTokenHeader != null && ( requestTokenHeader.startsWith("Bearer " ) || requestTokenHeader.startsWith("bearer_"))) {
             jwtToken = requestTokenHeader.substring(7);
             try {
                 username = loginController.loginUser(jwtToken);
