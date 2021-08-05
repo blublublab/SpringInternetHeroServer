@@ -1,1 +1,1 @@
-web:    ava $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
+web:    ava $JAVA_OPTS -jar target/*.jar --port $PORT target/*.war
