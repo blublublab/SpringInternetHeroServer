@@ -1,6 +1,5 @@
 package com.yainnixdev.springleaf.server.configs;
 
-import com.yainnixdev.springleaf.server.controller.LoginFilter;
 import com.yainnixdev.springleaf.server.service.UserService;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -40,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                    .antMatchers( "/oauth2/**", "/login").permitAll()
+                    .antMatchers( "/oauth2/**", "/login", "/ws/**").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     .exceptionHandling().authenticationEntryPoint(authEntryPoint).and().sessionManagement()

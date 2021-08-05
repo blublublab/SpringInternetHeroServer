@@ -92,7 +92,6 @@ public class LoginController  {
 */
 
     public String loginUser(String userToken) throws IOException, GeneralSecurityException , UserAlreadyExistException {
-        System.out.println(userToken);
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
                 // Specify the CLIENT_ID of the app that accesses the backend:
                 .setAudience(Collections.singletonList(System.getenv("GOOGLE_OAUTH_CLIENT_ID")))

@@ -1,10 +1,11 @@
-package com.yainnixdev.springleaf.server.controller;
+package com.yainnixdev.springleaf.server.configs;
 
 import com.yainnixdev.springleaf.server.controller.LoginController;
 import com.yainnixdev.springleaf.server.exception.TokenNotValidException;
 import com.yainnixdev.springleaf.server.service.UserService;
 import lombok.SneakyThrows;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.Authentication;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.WebAuthenticationDetailsSource;
@@ -59,7 +60,7 @@ public class LoginFilter extends OncePerRequestFilter {
             // After setting the Authentication in the context, we specify
             // that the current user is authenticated. So it passes the
             // Spring Security Configurations successfully.
-            SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+           SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
 
         }
         chain.doFilter(request, response);
