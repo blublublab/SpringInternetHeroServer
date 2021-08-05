@@ -1,1 +1,1 @@
-web:    ava $JAVA_OPTS -jar target/*.jar --port $PORT target/*.war
+web: java $JAVA_OPTS -jar -Dserver.port=$PORT target/*.jar
