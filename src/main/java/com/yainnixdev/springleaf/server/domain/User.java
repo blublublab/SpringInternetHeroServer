@@ -12,7 +12,6 @@ import java.util.Collection;
 import java.util.Set;
 
 @Entity(name = "users")
-
 public class User implements UserDetails {
     @Id
     @Column(name = "user_id")

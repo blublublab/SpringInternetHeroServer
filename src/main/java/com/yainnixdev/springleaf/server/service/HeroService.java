@@ -4,9 +4,7 @@ import com.yainnixdev.springleaf.server.domain.Hero;
 import com.yainnixdev.springleaf.server.exception.HeroAlreadyExistException;
 import com.yainnixdev.springleaf.server.exception.HeroNotFoundException;
 import com.yainnixdev.springleaf.server.repository.HeroRepo;
-import com.yainnixdev.springleaf.server.repository.UserRepo;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestHeader;
 
@@ -40,6 +38,8 @@ public class HeroService {
         hero.setUser(userService.getUserByUserId(user_id));
         hero.setMoney(0);
         hero.setLevel(0);
+        hero.setCoordinate_X(0);
+        hero.setCoordinate_Y(0);
         return heroRepo.save(hero);
     }
 }

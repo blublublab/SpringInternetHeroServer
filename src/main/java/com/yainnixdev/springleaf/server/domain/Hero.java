@@ -2,14 +2,9 @@
 package com.yainnixdev.springleaf.server.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonManagedReference;
-import com.sun.istack.NotNull;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.ColumnDefault;
-import org.springframework.context.annotation.Primary;
-import org.springframework.lang.NonNull;
 
 import javax.persistence.*;
 import java.awt.*;
@@ -25,7 +20,7 @@ public class Hero {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "hero_id")
-    private String characterId;
+    private String hero_id;
 
     @OneToOne()
     @MapsId
@@ -34,17 +29,14 @@ public class Hero {
     private User user;
 
 
+
+    private int coordinate_X;
+    private int coordinate_Y;
+
+
     private String heroName;
 
-    @ColumnDefault("0")
     private Integer level;
-
-    @NonNull
     private Integer money;
-
-    @ColumnDefault("0")
-    private int xCoordinate;
-    @ColumnDefault("0")
-    private int yCoordinate;
 
 }
