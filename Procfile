@@ -1,1 +1,1 @@
-web:    java $JAVA_OPTS -jar springsestem/target/dependency/webapp-runner.jar --port $PORT springsestem/target/*.war
+web:    ava $JAVA_OPTS -jar target/dependency/webapp-runner.jar --port $PORT target/*.war
