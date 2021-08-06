@@ -2,7 +2,6 @@ package com.yainnixdev.springleaf.server.configs;
 
 
 import com.yainnixdev.springleaf.server.controller.LoginController;
-import com.yainnixdev.springleaf.server.exception.TokenNotValidException;
 import com.yainnixdev.springleaf.server.service.UserService;
 import lombok.SneakyThrows;
 import org.jetbrains.annotations.NotNull;
@@ -25,9 +24,6 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
-import java.io.IOException;
-import java.security.GeneralSecurityException;
-import java.security.Principal;
 import java.util.List;
 
 @Configuration
@@ -47,8 +43,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/topic");
-        config.setApplicationDestinationPrefixes("/topic");
-
+        config.setApplicationDestinationPrefixes("/app");
     }
 
     @Override

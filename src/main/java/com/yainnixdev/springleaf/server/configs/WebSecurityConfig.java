@@ -39,7 +39,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .csrf().disable()
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
-                    .antMatchers( "/oauth2/**", "/login", "/ws/**").permitAll()
+                    .antMatchers( "/oauth2/**", "/login").permitAll()
                     .anyRequest().authenticated()
                     .and()
                     .exceptionHandling().authenticationEntryPoint(authEntryPoint).and().sessionManagement()
