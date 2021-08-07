@@ -95,7 +95,7 @@ public class LoginController  {
         userDto.setUserId(payload.getSubject());
         userDto.setEmail(payload.getEmail());
        String name = String.valueOf(payload.get("name"));
-        name = name.replaceAll(" ", "_");
+        name = name.replace(" ", "_");
         userDto.setName(name);
         userDto.setName(payload.get("name").toString());
         userDto.setLocale((String) payload.get("locale"));
