@@ -91,13 +91,11 @@ public class LoginController  {
 
         // Get profile information from payload
         UserDto userDto = new UserDto();
-
         userDto.setUserId(payload.getSubject());
         userDto.setEmail(payload.getEmail());
        String name = String.valueOf(payload.get("name"));
         name = name.replace(" ", "_");
         userDto.setName(name);
-        userDto.setName(payload.get("name").toString());
         userDto.setLocale((String) payload.get("locale"));
         userDto.setPictureURL((String) payload.get("picture"));
         System.out.println(MessageFormat.format("User ID: {0} Authorized", payload.getSubject()));
