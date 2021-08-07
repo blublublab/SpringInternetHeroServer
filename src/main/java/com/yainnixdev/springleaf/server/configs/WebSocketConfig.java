@@ -74,6 +74,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                              }
                             // if token is valid configure Spring Security to manually set
                             // authentication
+                    System.out.println(userDetails.getUsername());
                             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                                     userDetails, null, userDetails.getAuthorities());
 
