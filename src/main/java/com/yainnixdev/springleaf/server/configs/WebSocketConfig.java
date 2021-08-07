@@ -24,6 +24,7 @@ import org.springframework.web.socket.config.annotation.EnableWebSocketMessageBr
 import org.springframework.web.socket.config.annotation.StompEndpointRegistry;
 import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerConfigurer;
 
+import java.security.Principal;
 import java.util.List;
 
 @Configuration
@@ -75,6 +76,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                             // authentication
                             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
                                     userDetails, null, userDetails.getAuthorities());
+
                             usernamePasswordAuthenticationToken
                                     .setDetails(new WebAuthenticationDetailsSource());
 

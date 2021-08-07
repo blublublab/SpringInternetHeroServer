@@ -94,7 +94,9 @@ public class LoginController  {
 
         userDto.setUserId(payload.getSubject());
         userDto.setEmail(payload.getEmail());
-        userDto.setName((String) payload.get("name"));
+        String name = String.valueOf(payload.get("name"));
+        name = name.replaceAll(" ", "_");
+        userDto.setName(name);
         userDto.setLocale((String) payload.get("locale"));
         userDto.setPictureURL((String) payload.get("picture"));
         System.out.println(MessageFormat.format("User ID: {0} Authorized", payload.getSubject()));
