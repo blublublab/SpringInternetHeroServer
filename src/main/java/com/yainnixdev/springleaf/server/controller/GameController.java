@@ -19,6 +19,8 @@ public class GameController {
     @MessageMapping("/send_position")
     @SendTo("/topic/get_positions")
     public String playerPosition(HeroDto heroDto){
-       return new Gson().toJson(heroDto);
+         String jsonResponse = new Gson().toJson(heroDto);
+        System.out.println(jsonResponse);
+       return jsonResponse;
     }
 }
