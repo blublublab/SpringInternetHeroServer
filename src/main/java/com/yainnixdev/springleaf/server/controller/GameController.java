@@ -7,8 +7,6 @@ import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.sql.SQLOutput;
-
 
 @RestController
 public class GameController {
@@ -27,9 +25,10 @@ public class GameController {
     }
 
     @MessageMapping("/send_message")
-    @SendTo("topic/get_messages")
+    @SendTo("/topic/get_messages")
     public String sendMessage(MessageDto messageDto){
-        System.out.println(messageDto.getMessage());
-        return new Gson().toJson(messageDto);
+        String jsonResponse  = new Gson().toJson(messageDto);
+        System.out.println(jsonResponse);
+        return jsonResponse;
     }
 }
