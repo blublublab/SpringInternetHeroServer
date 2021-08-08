@@ -17,4 +17,15 @@ public class GameController {
         System.out.println(jsonResponse);
        return jsonResponse;
     }
+
+    @MessageMapping("/ping_server")
+    public void pingServer(){
+
+    }
+
+    @MessageMapping("/send_message")
+    @SendTo("topic/get_messages")
+    public String sendMessage(HeroDto heroDto){
+        return new Gson().toJson(heroDto);
+    }
 }

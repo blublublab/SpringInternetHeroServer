@@ -38,7 +38,6 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         this.userService = userService;
     }
 
-
     private LoginController loginController;
     private UserService userService;
     @Override
