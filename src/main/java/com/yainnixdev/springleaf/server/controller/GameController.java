@@ -2,6 +2,7 @@ package com.yainnixdev.springleaf.server.controller;
 
 import com.google.gson.Gson;
 import com.yainnixdev.springleaf.server.repository.HeroDto;
+import com.yainnixdev.springleaf.server.repository.MessageDto;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
 import org.springframework.web.bind.annotation.RestController;
@@ -25,7 +26,7 @@ public class GameController {
 
     @MessageMapping("/send_message")
     @SendTo("topic/get_messages")
-    public String sendMessage(HeroDto heroDto){
-        return new Gson().toJson(heroDto);
+    public String sendMessage(MessageDto messageDto){
+        return new Gson().toJson(messageDto);
     }
 }
