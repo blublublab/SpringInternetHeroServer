@@ -10,7 +10,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 @RestController
 public class GameController {
-
     @MessageMapping("/send_position")
     @SendTo("/topic/get_positions")
     public String playerPosition(HeroDto heroDto){
