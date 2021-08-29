@@ -10,6 +10,8 @@ import com.yainnixdev.springleaf.server.service.UserService;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
+import java.awt.*;
+
 @RestController
 @RequestMapping("/hero")
 public class HeroController {
@@ -21,6 +23,15 @@ public class HeroController {
         this.userService = userService;
     }
 
+
+    @PostMapping("/get_point")
+    public Point getPoint(@RequestBody String heroName){
+       Point point =  heroService.getPointByHeroName(heroName);
+       if(point == null){
+           throw new HeroNotFoundException("Point of hero not found");
+       }
+       return point;
+    }
 
     @PostMapping("/get_by/user_id")
     public Hero getHero(@RequestBody  String userId){

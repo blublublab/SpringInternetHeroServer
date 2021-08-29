@@ -27,6 +27,17 @@ public class HeroService {
         return hero;
     }
 
+    public Point getPointByHeroName(@RequestBody String heroName){
+       Hero hero =  heroRepo.findByHeroName(heroName);
+       int x = 0, y = 0;
+        if (hero == null) {
+           throw  new HeroNotFoundException("Coordinates not found , setting 0, 0 by default ");
+       }
+        x =  hero.getCoordinate_X();
+        y =  hero.getCoordinate_Y();
+        return new Point(x, y);
+    }
+
     public Hero createNewHero(@RequestBody Hero inputHero, @RequestHeader("user_id") String user_id){
         // TODO: Add variable sprites to hero creation
         Hero hero = heroRepo.findByUser_UserId(user_id);

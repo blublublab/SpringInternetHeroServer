@@ -9,4 +9,5 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface HeroRepo extends CrudRepository<Hero, String> {
     Hero findByUser_UserId(String user_id);
+    Hero findByHeroName(String heroName);
 }
