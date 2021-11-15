@@ -53,6 +53,8 @@ public class Hero {
 
     private String heroName;
 
+
+    private Integer damage;
     private Integer level;
     private Integer money;
 

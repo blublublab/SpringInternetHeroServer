@@ -58,6 +58,7 @@ public class HeroService {
         hero.setMoney(0);
         hero.setLevel(0);
         hero.setHeroPoint(new Point(1500F, 1500F));
+        hero.setDamage(3);
         System.out.println(hero);
         return heroRepo.save(hero);
     }
