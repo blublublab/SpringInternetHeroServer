@@ -2,13 +2,12 @@
 package com.yainnixdev.springleaf.server.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.yainnixdev.springleaf.server.utils.Point;
 import lombok.Data;
 import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
-import java.awt.*;
-
 @Data
 @Entity(name = "hero")
 public class Hero {
@@ -29,9 +28,7 @@ public class Hero {
     private User user;
 
 
-
-    private Float coordinate_X;
-    private Float coordinate_Y;
+    private Point heroPoint;
 
 
     private String heroName;

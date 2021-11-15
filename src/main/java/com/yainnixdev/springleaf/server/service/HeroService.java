@@ -24,6 +24,7 @@ public class HeroService {
     public Hero getHeroByUserId(@RequestBody  String user_id){
         Hero hero =   heroRepo.findByUser_UserId(user_id);
         if(hero == null){
+            System.out.println("Hero not found");
             throw new HeroNotFoundException("Hero not found");
         }
         return hero;
@@ -31,19 +32,15 @@ public class HeroService {
 
     public Point getPointByHeroName(@RequestBody String heroName){
        Hero hero =  heroRepo.findByHeroName(heroName);
-       Float x, y;
         if (hero == null) {
            throw  new HeroNotFoundException("Coordinates not found , setting 0, 0 by default ");
        }
-        x =  hero.getCoordinate_X();
-        y =  hero.getCoordinate_Y();
-        return new com.yainnixdev.springleaf.server.utils.Point(x, y);
+        return hero.getHeroPoint();
     }
 
     public Hero updateHero(@RequestBody HeroDto heroToUpdate){
         Hero oldHero = heroRepo.findByHeroName(heroToUpdate.getHeroName());
-        oldHero.setCoordinate_X(heroToUpdate.getHeroCoordinates().getX());
-        oldHero.setCoordinate_Y(heroToUpdate.getHeroCoordinates().getY());
+        oldHero.setHeroPoint(heroToUpdate.getHeroCoordinates());
         return  heroRepo.save(oldHero);
     }
 
@@ -59,8 +56,7 @@ public class HeroService {
         hero.setUser(userService.getUserByUserId(user_id));
         hero.setMoney(0);
         hero.setLevel(0);
-        hero.setCoordinate_X(1500F);
-        hero.setCoordinate_Y(1500F);
+        hero.setHeroPoint(new Point(1500F, 1500F));
         return heroRepo.save(hero);
     }
 }
