@@ -2,9 +2,7 @@
 package com.yainnixdev.springleaf.server.domain;
 
 import com.fasterxml.jackson.annotation.*;
-import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
-import com.google.gson.annotations.SerializedName;
 import com.yainnixdev.springleaf.server.utils.Point;
 import lombok.Data;
 
@@ -29,9 +27,6 @@ public class Hero {
     @JsonBackReference
     private User user;
 
-    @Transient
-    @JsonSerialize
-    private Point point;
 
     @Column(name = "coordinate_x")
     @JsonIgnore
@@ -41,10 +36,20 @@ public class Hero {
     @JsonIgnore
     private Float coordinateY;
 
+
+    @Transient
+    @JsonSerialize
+    private Point point;
+
     public void setPoint(Point heroPoint) {
         coordinateX = heroPoint.getX();
         coordinateY = heroPoint.getY();
         this.point = heroPoint;
+    }
+
+    public Point getPoint(){
+        point = new Point(coordinateX, coordinateY);
+        return point;
     }
 
 
