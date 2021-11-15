@@ -34,9 +34,8 @@ public class GameController {
 
     @MessageMapping("/send_character_operation")
     @SendTo("/topic/character")
-    public String characterOperations(String string){
-        System.out.println(string);
-        return string;
+    public String characterOperations(HeroDto heroDto){
+        return new Gson().toJson(heroDto);
     }
 
     @MessageMapping("/send_message")
