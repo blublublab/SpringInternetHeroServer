@@ -6,6 +6,7 @@ import com.yainnixdev.springleaf.server.repository.MessageDto;
 import com.yainnixdev.springleaf.server.service.HeroService;
 import org.springframework.messaging.handler.annotation.MessageMapping;
 import org.springframework.messaging.handler.annotation.SendTo;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -34,8 +35,8 @@ public class GameController {
 
     @MessageMapping("/send_character_operation")
     @SendTo("/topic/character")
-    public String characterOperations(HeroDto heroDto){
-        return new Gson().toJson(heroDto);
+    public String characterOperations(@RequestBody String string){
+        return string;
     }
 
     @MessageMapping("/send_message")
