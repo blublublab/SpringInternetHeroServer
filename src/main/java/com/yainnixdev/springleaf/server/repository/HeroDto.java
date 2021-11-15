@@ -11,6 +11,7 @@ public class HeroDto {
     private Point moveIntention;
 
     @SerializedName("point")
+    @JsonProperty("point")
     private Point heroCoordinates;
 
     private String heroName;
