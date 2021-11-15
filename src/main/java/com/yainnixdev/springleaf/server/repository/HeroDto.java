@@ -9,7 +9,7 @@ import lombok.Data;
 public class HeroDto {
     private Point moveIntention;
 
-
+    @JsonProperty("point")
     private Point heroCoordinates;
 
     private String heroName;
