@@ -41,6 +41,7 @@ public class HeroController {
       if(hero == null){
           throw new HeroNotFoundException("Hero not found");
       }
+        System.out.println(hero);
       return hero;
     }
 
