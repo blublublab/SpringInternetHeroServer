@@ -39,7 +39,7 @@ public class Hero {
 
     @Transient
     @JsonSerialize
-    private Point point;
+    private Point point = new Point();
 
     public void setPoint(Point heroPoint) {
         coordinateX = heroPoint.getX();
@@ -48,7 +48,8 @@ public class Hero {
     }
 
     public Point getPoint(){
-        point = new Point(coordinateX, coordinateY);
+        point.setX(coordinateX);
+        point.setY(coordinateY);
         return point;
     }
 
