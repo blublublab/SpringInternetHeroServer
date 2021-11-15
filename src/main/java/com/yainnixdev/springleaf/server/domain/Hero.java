@@ -3,6 +3,8 @@ package com.yainnixdev.springleaf.server.domain;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.yainnixdev.springleaf.server.utils.Point;
 import lombok.Data;
 
@@ -29,6 +31,8 @@ public class Hero {
 
     @Transient
     @JsonProperty
+    @JsonSerialize
+    @JsonDeserialize
     private Point heroPoint;
 
     private Float coordinateX;
