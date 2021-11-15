@@ -1,6 +1,7 @@
 
 package com.yainnixdev.springleaf.server.domain;
 
+import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
@@ -12,6 +13,7 @@ import javax.persistence.*;
 
 @Data
 @Entity(name = "hero")
+@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Hero {
 
     public Hero(){
@@ -30,9 +32,6 @@ public class Hero {
     private User user;
 
     @Transient
-    @JsonProperty
-    @JsonSerialize
-    @JsonDeserialize
     private Point heroPoint;
 
     private Float coordinateX;
@@ -43,6 +42,9 @@ public class Hero {
         coordinateY = heroPoint.getY();
         this.heroPoint = heroPoint;
     }
+
+
+    @JsonProperty
     public Point getHeroPoint(){
         return heroPoint;
     }
