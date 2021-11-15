@@ -19,7 +19,7 @@ public class GameController {
 
 
     @MessageMapping("/send_position")
-    @SendTo("/topic/get_positions")
+    @SendTo("/topic/get_position")
     public String playerPosition(HeroDto heroDto){
          String jsonResponse = new Gson().toJson(heroDto);
          heroService.updateHero(heroDto);
@@ -32,8 +32,15 @@ public class GameController {
 
     }
 
+    @MessageMapping("/send_character_operation")
+    @SendTo("/topic/character")
+    public String characterOperations(String string){
+        System.out.println(string);
+        return string;
+    }
+
     @MessageMapping("/send_message")
-    @SendTo("/topic/get_messages")
+    @SendTo("/topic/get_message")
     public String sendMessage(MessageDto messageDto){
         String jsonResponse  = new Gson().toJson(messageDto);
         System.out.println(jsonResponse);
