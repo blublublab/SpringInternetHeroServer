@@ -36,12 +36,12 @@ public class HeroService {
         if (hero == null) {
            throw  new HeroNotFoundException("Coordinates not found , setting 0, 0 by default ");
        }
-        return hero.getHeroPoint();
+        return hero.getPoint();
     }
 
     public Hero updateHero(@RequestBody HeroDto heroToUpdate){
         Hero oldHero = heroRepo.findByHeroName(heroToUpdate.getHeroName());
-        oldHero.setHeroPoint(heroToUpdate.getHeroCoordinates());
+        oldHero.setPoint(heroToUpdate.getHeroCoordinates());
         return  heroRepo.save(oldHero);
     }
 
@@ -57,7 +57,7 @@ public class HeroService {
         hero.setUser(userService.getUserByUserId(user_id));
         hero.setMoney(0);
         hero.setLevel(0);
-        hero.setHeroPoint(new Point(1500F, 1500F));
+        hero.setPoint(new Point(1500F, 1500F));
         hero.setDamage(3);
         System.out.println(hero);
         return heroRepo.save(hero);

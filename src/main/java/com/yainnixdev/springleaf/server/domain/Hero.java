@@ -32,22 +32,22 @@ public class Hero {
     private User user;
 
     @Transient
-    private Point heroPoint;
+    private Point point;
 
     private Float coordinateX;
     private Float coordinateY;
 
-    public void setHeroPoint(Point heroPoint) {
+    public void setPoint(Point heroPoint) {
         coordinateX = heroPoint.getX();
         coordinateY = heroPoint.getY();
-        this.heroPoint = heroPoint;
+        this.point = heroPoint;
     }
 
 
     @Transient
-    @JsonGetter("heroPoint")
-    public Point getHeroPoint(){
-        return heroPoint;
+    @JsonGetter("point")
+    public Point getPoint(){
+        return point;
     }
 
 
