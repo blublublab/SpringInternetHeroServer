@@ -7,6 +7,7 @@ import com.yainnixdev.springleaf.server.exception.HeroNotFoundException;
 import com.yainnixdev.springleaf.server.repository.HeroRepo;
 import com.yainnixdev.springleaf.server.service.HeroService;
 import com.yainnixdev.springleaf.server.service.UserService;
+import com.yainnixdev.springleaf.server.utils.Point;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
 
@@ -26,12 +27,13 @@ public class HeroController {
 
     @PostMapping("/get_point")
     public Point getPoint(@RequestBody String heroName){
-       Point point =  heroService.getPointByHeroName(heroName);
+       com.yainnixdev.springleaf.server.utils.Point point =  heroService.getPointByHeroName(heroName);
        if(point == null){
            throw new HeroNotFoundException("Point of hero not found");
        }
        return point;
     }
+
 
     @PostMapping("/get_by/user_id")
     public Hero getHero(@RequestBody  String userId){

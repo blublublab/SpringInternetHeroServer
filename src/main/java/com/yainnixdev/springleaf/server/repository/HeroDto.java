@@ -1,9 +1,8 @@
 package com.yainnixdev.springleaf.server.repository;
 
 
+import com.yainnixdev.springleaf.server.utils.Point;
 import lombok.Data;
-
-import java.awt.*;
 
 @Data
 public class HeroDto {

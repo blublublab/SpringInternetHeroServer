@@ -30,8 +30,8 @@ public class Hero {
 
 
 
-    private int coordinate_X;
-    private int coordinate_Y;
+    private Float coordinate_X;
+    private Float coordinate_Y;
 
 
     private String heroName;
