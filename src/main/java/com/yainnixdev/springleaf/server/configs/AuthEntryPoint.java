@@ -1,5 +1,6 @@
 package com.yainnixdev.springleaf.server.configs;
 
+import org.hibernate.Hibernate;
 import org.springframework.security.core.AuthenticationException;
 import org.springframework.security.web.AuthenticationEntryPoint;
 import org.springframework.stereotype.Component;
@@ -17,4 +18,5 @@ public class AuthEntryPoint implements AuthenticationEntryPoint, Serializable {
                          AuthenticationException authException) throws IOException {
         response.sendError(HttpServletResponse.SC_UNAUTHORIZED, "Unauthorized");
     }
+
 }

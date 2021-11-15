@@ -3,6 +3,7 @@ package com.yainnixdev.springleaf.server.domain;
 
 import com.fasterxml.jackson.annotation.JsonAutoDetect;
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
@@ -13,7 +14,6 @@ import javax.persistence.*;
 
 @Data
 @Entity(name = "hero")
-@JsonAutoDetect(fieldVisibility = JsonAutoDetect.Visibility.ANY)
 public class Hero {
 
     public Hero(){
@@ -46,7 +46,8 @@ public class Hero {
     }
 
 
-    @JsonProperty
+    @Transient
+    @JsonGetter("heroPoint")
     public Point getHeroPoint(){
         return heroPoint;
     }
