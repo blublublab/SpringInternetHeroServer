@@ -1,6 +1,17 @@
 package com.yainnixdev.springleaf.server.utils;
 
 public class Point {
+    private Float x;
+    private Float y;
+
+    public Point(){
+
+    }
+    public Point(Float x, Float y) {
+        this.x = x;
+        this.y = y;
+    }
+
     public Float getX() {
         return x;
     }
@@ -17,11 +28,5 @@ public class Point {
         this.y = y;
     }
 
-    private Float x;
-    private Float y;
 
-    public Point(Float x, Float y) {
-        this.x = x;
-        this.y = y;
-    }
 }
