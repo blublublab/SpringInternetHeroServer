@@ -1,5 +1,6 @@
 package com.yainnixdev.springleaf.server.service;
 
+import com.sun.xml.bind.v2.runtime.output.SAXOutput;
 import com.yainnixdev.springleaf.server.domain.Hero;
 import com.yainnixdev.springleaf.server.exception.HeroAlreadyExistException;
 import com.yainnixdev.springleaf.server.exception.HeroNotFoundException;
@@ -57,6 +58,7 @@ public class HeroService {
         hero.setMoney(0);
         hero.setLevel(0);
         hero.setHeroPoint(new Point(1500F, 1500F));
+        System.out.println(hero);
         return heroRepo.save(hero);
     }
 }
