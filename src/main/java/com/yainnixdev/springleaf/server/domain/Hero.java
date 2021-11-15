@@ -36,11 +36,11 @@ public class Hero {
     private Point point;
 
     @Column(name = "coordinate_x")
-    @SerializedName("x")
+    @JsonProperty("x")
     private Float coordinateX;
 
     @Column(name = "coordinate_y")
-    @SerializedName("y")
+    @JsonProperty("y")
     private Float coordinateY;
 
     public void setPoint(Point heroPoint) {
