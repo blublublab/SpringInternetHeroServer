@@ -4,8 +4,6 @@ package com.yainnixdev.springleaf.server.domain;
 import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.yainnixdev.springleaf.server.utils.Point;
 import lombok.Data;
-import lombok.Getter;
-import lombok.Setter;
 
 import javax.persistence.*;
 @Data
@@ -27,8 +25,20 @@ public class Hero {
     @JsonBackReference
     private User user;
 
-
+    @Transient
     private Point heroPoint;
+
+    private Float coordinateX;
+    private Float coordinateY;
+
+    public void setHeroPoint(Point heroPoint) {
+        coordinateX = heroPoint.getX();
+        coordinateY = heroPoint.getY();
+        this.heroPoint = heroPoint;
+    }
+    public Point getHeroPoint(){
+        return heroPoint;
+    }
 
 
     private String heroName;
