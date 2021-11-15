@@ -16,8 +16,8 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-/*
 
+/*
 	@Bean
 	public ObjectMapper includeTransientObjectMapper() {
 		Hibernate5Module hibernate5Module = new Hibernate5Module();

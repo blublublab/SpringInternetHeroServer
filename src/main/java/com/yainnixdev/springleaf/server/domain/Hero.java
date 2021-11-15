@@ -1,10 +1,7 @@
 
 package com.yainnixdev.springleaf.server.domain;
 
-import com.fasterxml.jackson.annotation.JsonAutoDetect;
-import com.fasterxml.jackson.annotation.JsonBackReference;
-import com.fasterxml.jackson.annotation.JsonGetter;
-import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.google.gson.annotations.SerializedName;
@@ -33,14 +30,15 @@ public class Hero {
     private User user;
 
     @Transient
+    @JsonSerialize
     private Point point;
 
     @Column(name = "coordinate_x")
-    @JsonProperty("x")
+    @JsonIgnore
     private Float coordinateX;
 
     @Column(name = "coordinate_y")
-    @JsonProperty("y")
+    @JsonIgnore
     private Float coordinateY;
 
     public void setPoint(Point heroPoint) {
