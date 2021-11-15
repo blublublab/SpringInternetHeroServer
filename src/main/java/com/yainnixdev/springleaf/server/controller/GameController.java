@@ -35,7 +35,7 @@ public class GameController {
 
     @MessageMapping("/send_character_operation")
     @SendTo("/topic/character")
-    public String characterOperations(@RequestBody String string){
+    public String characterOperations(String string){
         return string;
     }
 
