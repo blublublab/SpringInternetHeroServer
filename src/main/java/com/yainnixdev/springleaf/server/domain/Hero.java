@@ -44,13 +44,6 @@ public class Hero {
     }
 
 
-    @Transient
-    @JsonGetter("point")
-    public Point getPoint(){
-        return point;
-    }
-
-
     private String heroName;
 
 

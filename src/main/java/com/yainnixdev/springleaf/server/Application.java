@@ -16,7 +16,7 @@ public class Application {
 		SpringApplication.run(Application.class, args);
 	}
 
-
+/*
 
 	@Bean
 	public ObjectMapper includeTransientObjectMapper() {
@@ -25,5 +25,5 @@ public class Application {
 		ObjectMapper mapper = new ObjectMapper();
 		mapper.registerModule(hibernate5Module);
 		return mapper;
-	}
+	}*/
 }
