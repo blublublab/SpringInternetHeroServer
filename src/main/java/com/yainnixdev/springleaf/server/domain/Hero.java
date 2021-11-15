@@ -34,7 +34,9 @@ public class Hero {
     @Transient
     private Point point;
 
+    @Column(name = "x")
     private Float coordinateX;
+    @Column(name = "y")
     private Float coordinateY;
 
     public void setPoint(Point heroPoint) {
