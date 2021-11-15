@@ -32,8 +32,6 @@ public class Hero {
     private User user;
 
     @Transient
-    @JsonSerialize
-    @JsonDeserialize
     private Point heroPoint;
 
     private Float coordinateX;
