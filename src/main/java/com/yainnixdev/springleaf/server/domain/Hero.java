@@ -7,6 +7,7 @@ import com.fasterxml.jackson.annotation.JsonGetter;
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.databind.annotation.JsonDeserialize;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
+import com.google.gson.annotations.SerializedName;
 import com.yainnixdev.springleaf.server.utils.Point;
 import lombok.Data;
 
@@ -34,9 +35,12 @@ public class Hero {
     @Transient
     private Point point;
 
-    @Column(name = "x")
+    @Column(name = "coordinate_x")
+    @SerializedName("x")
     private Float coordinateX;
-    @Column(name = "y")
+
+    @Column(name = "coordinate_y")
+    @SerializedName("y")
     private Float coordinateY;
 
     public void setPoint(Point heroPoint) {
