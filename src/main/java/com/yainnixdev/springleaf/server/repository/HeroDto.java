@@ -17,6 +17,8 @@ public class HeroDto {
 
     private String heroName;
 
+    @SerializedName("direction")
+    @JsonProperty("direction")
     private CreatureDirection creatureDirection;
 
     public HeroDto(Point heroCoordinates, Point moveIntention, String heroName, CreatureDirection creatureDirection){
