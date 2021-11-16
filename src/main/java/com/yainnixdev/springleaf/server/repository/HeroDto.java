@@ -3,6 +3,7 @@ package com.yainnixdev.springleaf.server.repository;
 
 import com.fasterxml.jackson.annotation.JsonProperty;
 import com.google.gson.annotations.SerializedName;
+import com.yainnixdev.springleaf.server.utils.CreatureDirection;
 import com.yainnixdev.springleaf.server.utils.Point;
 import lombok.Data;
 
@@ -15,6 +16,8 @@ public class HeroDto {
     private Point heroCoordinates;
 
     private String heroName;
+
+    private CreatureDirection creatureDirection;
 
     public HeroDto(Point heroCoordinates, Point moveIntention, String heroName){
         this.moveIntention = moveIntention;
