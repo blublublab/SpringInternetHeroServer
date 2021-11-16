@@ -19,9 +19,10 @@ public class HeroDto {
 
     private CreatureDirection creatureDirection;
 
-    public HeroDto(Point heroCoordinates, Point moveIntention, String heroName){
+    public HeroDto(Point heroCoordinates, Point moveIntention, String heroName, CreatureDirection creatureDirection){
         this.moveIntention = moveIntention;
         this.heroCoordinates = heroCoordinates;
         this.heroName = heroName;
+        this.creatureDirection = creatureDirection;
     }
 }
