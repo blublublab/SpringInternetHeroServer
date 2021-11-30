@@ -10,7 +10,7 @@ import javax.persistence.*;
 public class HeroLook {
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "hero_look_Id")
+    @Column(name = "look_Id")
     private String heroLookId;
 
     @OneToOne()

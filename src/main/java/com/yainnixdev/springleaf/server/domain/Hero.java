@@ -30,7 +30,8 @@ public class Hero {
     private User user;
 
 
-    @OneToOne(mappedBy = "hero_look" , cascade = CascadeType.ALL)
+
+    @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private HeroLook heroLook;
 

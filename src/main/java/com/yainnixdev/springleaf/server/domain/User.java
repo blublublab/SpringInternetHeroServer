@@ -22,9 +22,9 @@ public class User implements UserDetails {
 
     @Getter
     @Setter
-    @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
+    @OneToOne(mappedBy = "users" , cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
-   private Hero hero;
+    private Hero hero;
 
 
 
