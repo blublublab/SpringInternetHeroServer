@@ -1,5 +1,6 @@
 package com.yainnixdev.springleaf.server.configs;
 
+import com.yainnixdev.springleaf.server.domain.UserRole;
 import com.yainnixdev.springleaf.server.service.UserService;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -64,11 +65,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .and()
                 .oauth2Client()
                         .and()
-                .formLogin()
-                        .loginPage("/login")
-                        .and()
-                .logout()
-                        .permitAll();
+                .oauth2Login();
     }
 
 
