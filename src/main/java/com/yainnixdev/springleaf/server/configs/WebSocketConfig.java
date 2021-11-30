@@ -26,11 +26,11 @@ import org.springframework.web.socket.config.annotation.WebSocketMessageBrokerCo
 
 import java.security.Principal;
 import java.util.List;
+import java.util.Objects;
 
 @Configuration
 @EnableWebSocketMessageBroker
 @Order(Ordered.HIGHEST_PRECEDENCE + 99)
-
 public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 
     public WebSocketConfig(LoginController loginController, UserService userService) {
@@ -38,8 +38,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
         this.userService = userService;
     }
 
-    private LoginController loginController;
-    private UserService userService;
+    private final LoginController loginController;
+    private final UserService userService;
     @Override
     public void configureMessageBroker(MessageBrokerRegistry config) {
         config.enableSimpleBroker("/topic");
@@ -74,7 +74,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
                             // if token is valid configure Spring Security to manually set
                             // authentication
                             UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken = new UsernamePasswordAuthenticationToken(
-                                    userDetails, null, userDetails.getAuthorities());
+                                    userDetails, null, Objects.requireNonNull(userDetails).getAuthorities());
 
                             usernamePasswordAuthenticationToken
                                     .setDetails(new WebAuthenticationDetailsSource());

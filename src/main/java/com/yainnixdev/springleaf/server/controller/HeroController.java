@@ -17,11 +17,10 @@ import java.awt.*;
 @RequestMapping("/hero")
 public class HeroController {
 
-    private HeroService heroService;
-    private UserService userService;
-    public HeroController(HeroService heroService, UserService userService) {
+    private final HeroService heroService;
+
+    public HeroController(HeroService heroService) {
         this.heroService = heroService;
-        this.userService = userService;
     }
 
 

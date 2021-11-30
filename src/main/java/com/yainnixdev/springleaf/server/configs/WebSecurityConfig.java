@@ -13,10 +13,10 @@ import javax.sql.DataSource;
 
 @Configuration
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
-    private DataSource dataSource;
-    private UserService userService;
-    private AuthEntryPoint authEntryPoint;
-    private LoginFilter loginFilter;
+    private final DataSource dataSource;
+    private final UserService userService;
+    private final AuthEntryPoint authEntryPoint;
+    private final LoginFilter loginFilter;
 
     public WebSecurityConfig(UserService userService, DataSource dataSource, AuthEntryPoint authEntryPoint, LoginFilter loginFilter) {
         this.dataSource = dataSource;
@@ -26,7 +26,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     }
 
     @Override
-    public void configure(WebSecurity web) throws Exception {
+    public void configure(WebSecurity web) {
          web.ignoring();
     }
 
@@ -37,6 +37,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
+                .formLogin()
+                    .loginPage("/login.html")
+                    .loginProcessingUrl("/login")
+                    .defaultSuccessUrl("/admin.html", true)
+                    .and()
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                     .antMatchers( "/oauth2/**", "/login").permitAll()
