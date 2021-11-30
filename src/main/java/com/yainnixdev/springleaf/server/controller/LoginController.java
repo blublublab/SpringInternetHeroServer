@@ -34,51 +34,6 @@ public class LoginController  {
         this.userService = userService;
     }
 
-  /*  @SneakyThrows
-    @PostMapping("/login")
-    public String getUserToken(@RequestBody String authCode){
-        OkHttpClient client = new OkHttpClient();
-        okhttp3.RequestBody requestBody =  new FormBody.Builder()
-                .add("grant_type", "authorization_code")
-                .add("client_id", System.getenv("GOOGLE_OAUTH_CLIENT_ID"))
-                .add("client_secret", System.getenv("GOOGLE_OAUTH_CLIENT_SECRET"))
-                .add("code", authCode)
-                .build();
-        final Request request = new Request.Builder()
-                .url("https://www.googleapis.com/oauth2/v4/token")
-                .header("Content-Type", "application/x-www-form-urlencoded")
-                .post(requestBody)
-                .build();
-        ;
-        CountDownLatch awaitResponse = new CountDownLatch(1);
-        client.newCall(request).enqueue(new Callback() {
-             @Override
-             public void onFailure(@NotNull Call call, @NotNull IOException e) {
-                 userToken  = "Failed to get User Token from auth code " + authCode ;
-                 awaitResponse.countDown();
-             }
-             @Override
-             public void onResponse(@NotNull Call call, @NotNull Response response) throws IOException {
-                 try {
-                     JSONObject tokenInfo = new JSONObject(response.body().string());
-                     userToken =  tokenInfo.getString("access_token");
-                 } catch (JSONException e) {
-                     awaitResponse.countDown();
-                     e.printStackTrace();
-                 }
-                 awaitResponse.countDown();
-             }
-
-         });
-        awaitResponse.await(20, TimeUnit.SECONDS);
-        // registerUserAccount(userToken);
-        System.out.println(userToken);
-        return userToken;
-    }
-*/
-
-
-
 
     public String loginUser(String userToken) throws IOException, GeneralSecurityException , UserAlreadyExistException {
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
