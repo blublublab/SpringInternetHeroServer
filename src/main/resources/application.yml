@@ -1,4 +1,7 @@
 spring:
+  thymeleaf:
+    prefix: classpath:/templates/
+
   security:
     oauth2:
       client:
@@ -6,8 +9,6 @@ spring:
           google:
             clientId: ${GOOGLE_OAUTH_CLIENT_ID}
             clientSecret: ${GOOGLE_OAUTH_CLIENT_SECRET}
-   thymeleaf:
-     prefix : classpath:/templates/
 
   datasource:
     hikari:
