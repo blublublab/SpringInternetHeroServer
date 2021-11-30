@@ -10,6 +10,7 @@ import com.yainnixdev.springleaf.server.exception.UserAlreadyExistException;
 import com.yainnixdev.springleaf.server.repository.UserDto;
 import com.yainnixdev.springleaf.server.service.UserService;
 import org.springframework.http.HttpStatus;
+import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -22,7 +23,7 @@ import java.util.Collections;
 
 
 @RequestMapping("/")
-@RestController
+@Controller
 public class LoginController  {
 
 
