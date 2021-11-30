@@ -49,7 +49,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .loginProcessingUrl("/login")
-                    .defaultSuccessUrl("/admin", true);
+                    .defaultSuccessUrl("/admin/", true);
             /*        .and()
 
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)

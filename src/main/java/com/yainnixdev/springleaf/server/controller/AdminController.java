@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
-    @RequestMapping("/")
+    @RequestMapping("/main")
     private  String mainPanel(){
         return "tratrtaert";
     }
