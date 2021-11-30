@@ -37,17 +37,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
 
     @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        super.configure(auth);
-        String password =  System.getenv("ADMIN_PANEL_PASSWORD");
-
-        auth.inMemoryAuthentication()
-                .withUser("root")
-                .password(passwordEncoder().encode("12345"))
-                .roles("ADMIN");
-    }
-
-    @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
