@@ -47,7 +47,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         http
                 .csrf().disable()
                 .formLogin()
-                    .loginPage("/templates/login.html")
+                    .loginPage("/login")
                     .loginProcessingUrl("/login")
                     .defaultSuccessUrl("/admin", true)
 
