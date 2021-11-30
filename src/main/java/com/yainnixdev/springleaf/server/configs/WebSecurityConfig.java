@@ -40,7 +40,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(HttpSecurity http) throws Exception {
         http
                 .csrf().disable()
-                .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
+               // .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                         .antMatchers("/oauth2/**", "/login", "/").permitAll()
                         .antMatchers("/admin/**").hasRole("ADMIN")
