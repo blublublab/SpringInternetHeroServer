@@ -50,7 +50,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login")
                     .loginProcessingUrl("/login")
                     .defaultSuccessUrl("/admin", true)
-                    .failureUrl("/login.html?error=true")
                     .and()
 
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
