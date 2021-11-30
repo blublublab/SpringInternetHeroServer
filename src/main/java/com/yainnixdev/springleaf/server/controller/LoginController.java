@@ -11,6 +11,7 @@ import com.yainnixdev.springleaf.server.repository.UserDto;
 import com.yainnixdev.springleaf.server.service.UserService;
 import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -76,6 +77,10 @@ public class LoginController  {
     }
 */
 
+    @RequestMapping("/login")
+    public String loginAdminPanel(Model model){
+        return "test";
+    }
 
 
     public String loginUser(String userToken) throws IOException, GeneralSecurityException , UserAlreadyExistException {
