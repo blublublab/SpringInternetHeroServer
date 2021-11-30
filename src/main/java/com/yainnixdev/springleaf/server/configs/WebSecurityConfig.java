@@ -49,10 +49,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .loginProcessingUrl("/login")
+                    .usernameParameter("username")
+                     .passwordParameter("password")
                     .defaultSuccessUrl("/admin", true)
-
                     .permitAll()
                     .and()
+
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
                     .antMatchers( "/oauth2/**", "/login", "/").permitAll()
