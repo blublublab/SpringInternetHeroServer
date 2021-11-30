@@ -8,7 +8,6 @@ spring:
             clientSecret: ${GOOGLE_OAUTH_CLIENT_SECRET}
    thymeleaf:
      prefix : classpath:/templates/
-     suffix: .html
 
   datasource:
     hikari:
