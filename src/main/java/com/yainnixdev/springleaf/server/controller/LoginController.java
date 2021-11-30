@@ -77,10 +77,7 @@ public class LoginController  {
     }
 */
 
-    @RequestMapping("/login")
-    public String loginAdminPanel(Model model){
-        return "test";
-    }
+
 
 
     public String loginUser(String userToken) throws IOException, GeneralSecurityException , UserAlreadyExistException {
