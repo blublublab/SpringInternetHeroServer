@@ -33,10 +33,11 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         super.configure(auth);
         String password =  System.getenv("ADMIN_PANEL_PASSWORD");
-        System.out.println("aut is " + password);
 
         auth.inMemoryAuthentication()
-                .withUser("admin").password(new BCryptPasswordEncoder().encode(password)).roles("ADMIN");
+                .withUser("admin")
+                .password("{noop}" + password)
+                .roles("ADMIN");
     }
 
     @Override
@@ -46,8 +47,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .loginProcessingUrl("/login")
-                    .defaultSuccessUrl("/admin", true);
-          /*          .and()
+                    .defaultSuccessUrl("/admin", true)
+                    .and()
 
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
@@ -60,7 +61,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                // .formLogin().permitAll()
                // .and()
-                .oauth2Client();*/
+                .oauth2Client();
     }
 
 
