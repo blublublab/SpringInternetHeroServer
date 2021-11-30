@@ -5,10 +5,14 @@ import lombok.Data;
 
 import javax.persistence.*;
 
-/*
+
 @Data
 @Entity(name = "hero_look")
 public class HeroLook {
+
+    public HeroLook(){
+
+    }
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     @Column(name = "look_Id")
@@ -27,4 +31,4 @@ public class HeroLook {
     private int heroAction;
 
 }
-*/
+

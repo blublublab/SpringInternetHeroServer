@@ -28,16 +28,13 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         this.loginFilter = loginFilter;
     }
 
-    @Override
-    public void configure(WebSecurity web) {
-         web.ignoring();
-    }
-
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         super.configure(auth);
         String password =  System.getenv("ADMIN_PANEL_PASSWORD");
+        System.out.println("aut is " + password);
+
         auth.inMemoryAuthentication()
                 .withUser("admin").password(new BCryptPasswordEncoder().encode(password)).roles("ADMIN");
     }
