@@ -46,8 +46,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .formLogin()
                     .loginPage("/login")
                     .loginProcessingUrl("/login")
-                    .defaultSuccessUrl("/admin", true)
-                    .and()
+                    .defaultSuccessUrl("/admin", true);
+          /*          .and()
 
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
@@ -60,7 +60,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                 .and()
                // .formLogin().permitAll()
                // .and()
-                .oauth2Client();
+                .oauth2Client();*/
     }
 
 
