@@ -65,7 +65,8 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .and()
                 .oauth2Client()
                         .and()
-                .oauth2Login();
+                .oauth2Login()
+                    .loginPage("/login");
     }
 
 
