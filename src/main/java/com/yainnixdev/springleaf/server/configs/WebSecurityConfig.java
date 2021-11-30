@@ -41,6 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                     .loginPage("/login.html")
                     .loginProcessingUrl("/login")
                     .defaultSuccessUrl("/admin.html", true)
+                    .permitAll()
                     .and()
                 .addFilterBefore(loginFilter, UsernamePasswordAuthenticationFilter.class)
                 .authorizeRequests()
