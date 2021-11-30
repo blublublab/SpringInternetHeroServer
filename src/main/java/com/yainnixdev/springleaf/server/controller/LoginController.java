@@ -75,6 +75,12 @@ public class LoginController  {
     }
 */
 
+
+    @RequestMapping("/login")
+    public String loginAdmin(){
+        return "";
+    }
+
     public String loginUser(String userToken) throws IOException, GeneralSecurityException , UserAlreadyExistException {
         GoogleIdTokenVerifier verifier = new GoogleIdTokenVerifier.Builder(new NetHttpTransport(), new GsonFactory())
                 // Specify the CLIENT_ID of the app that accesses the backend:
