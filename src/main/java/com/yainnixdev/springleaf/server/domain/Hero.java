@@ -31,9 +31,11 @@ public class Hero {
 
 
 
+/*
     @OneToOne(mappedBy = "user" , cascade = CascadeType.ALL)
     @PrimaryKeyJoinColumn
     private HeroLook heroLook;
+*/
 
     @Column(name = "coordinate_x")
     @JsonIgnore

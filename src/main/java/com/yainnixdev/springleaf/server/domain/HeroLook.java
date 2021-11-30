@@ -5,6 +5,7 @@ import lombok.Data;
 
 import javax.persistence.*;
 
+/*
 @Data
 @Entity(name = "hero_look")
 public class HeroLook {
@@ -26,3 +27,4 @@ public class HeroLook {
     private int heroAction;
 
 }
+*/
