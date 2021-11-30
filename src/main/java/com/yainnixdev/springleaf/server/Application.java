@@ -17,13 +17,4 @@ public class Application {
 	}
 
 
-/*
-	@Bean
-	public ObjectMapper includeTransientObjectMapper() {
-		Hibernate5Module hibernate5Module = new Hibernate5Module();
-		hibernate5Module.disable(Hibernate5Module.Feature.USE_TRANSIENT_ANNOTATION);
-		ObjectMapper mapper = new ObjectMapper();
-		mapper.registerModule(hibernate5Module);
-		return mapper;
-	}*/
 }

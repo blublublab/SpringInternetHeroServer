@@ -41,7 +41,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
 
         auth.inMemoryAuthentication()
                 .withUser("root")
-                .password(passwordEncoder().encode(password))
+                .password(passwordEncoder().encode("12345"))
                 .roles("ADMIN");
     }
 
@@ -65,7 +65,6 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .and()
                 .formLogin()
                         .loginPage("/login")
-                        .permitAll()
                         .and()
                 .logout()
                         .permitAll();
