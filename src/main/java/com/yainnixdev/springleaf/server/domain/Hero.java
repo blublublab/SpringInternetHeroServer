@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.*;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.yainnixdev.springleaf.server.utils.Point;
 import lombok.Data;
+import lombok.Getter;
+import lombok.Setter;
 
 import javax.persistence.*;
 
@@ -27,6 +29,10 @@ public class Hero {
     @JsonBackReference
     private User user;
 
+
+    @OneToOne(mappedBy = "hero_look" , cascade = CascadeType.ALL)
+    @PrimaryKeyJoinColumn
+    private HeroLook heroLook;
 
     @Column(name = "coordinate_x")
     @JsonIgnore
@@ -53,7 +59,7 @@ public class Hero {
         return point;
     }
 
-
+    @Column(name = "hero_name")
     private String heroName;
 
 
