@@ -1,9 +1,11 @@
 package com.yainnixdev.springleaf.server.configs;
 
 import com.yainnixdev.springleaf.server.service.UserService;
+import org.springframework.boot.autoconfigure.security.oauth2.client.EnableOAuth2Sso;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
+import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
@@ -13,6 +15,7 @@ import javax.sql.DataSource;
 
 
 @Configuration
+@EnableWebSecurity
 public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     private final DataSource dataSource;
     private final UserService userService;
@@ -36,7 +39,12 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers("/oauth2/**", "/login", "/").permitAll()
                         .antMatchers("/admin/**").hasRole("ADMIN")
                         .anyRequest().authenticated()
-                        .and()
+                    .and()
+                            .logout()
+                            .logoutSuccessUrl("/")
+                            .permitAll()
+                            .and()
+
                 .exceptionHandling()
                         .authenticationEntryPoint(authEntryPoint)
                         .and()
