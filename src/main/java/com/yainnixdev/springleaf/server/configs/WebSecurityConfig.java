@@ -11,6 +11,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import javax.sql.DataSource;
+import java.util.Collections;
 
 
 @Configuration
@@ -36,8 +37,9 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         super.configure(auth);
+        String password =  System.getenv("ADMIN_PANEL_PASSWORD");
         auth.inMemoryAuthentication()
-                .withUser("admin").password("12345").roles("ADMIN");
+                .withUser("admin").password(password).roles("ADMIN");
     }
 
     @Override
