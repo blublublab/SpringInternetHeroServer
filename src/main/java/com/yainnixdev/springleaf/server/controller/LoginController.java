@@ -78,7 +78,7 @@ public class LoginController  {
 
     @RequestMapping("/login")
     public String loginAdmin(){
-        return "";
+        return "fasdfasdfasdfasdfsadfasdf";
     }
 
     public String loginUser(String userToken) throws IOException, GeneralSecurityException , UserAlreadyExistException {
