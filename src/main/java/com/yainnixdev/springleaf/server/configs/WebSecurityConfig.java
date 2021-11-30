@@ -38,7 +38,7 @@ public class WebSecurityConfig extends WebSecurityConfigurerAdapter {
         String password =  System.getenv("ADMIN_PANEL_PASSWORD");
 
         auth.inMemoryAuthentication()
-                .withUser("admin")
+                .withUser("root")
                 .password(passwordEncoder().encode(password))
                 .roles("ADMIN");
     }
